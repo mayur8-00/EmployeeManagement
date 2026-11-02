@@ -1,0 +1,103 @@
+{% extends "employees/base.html" %} {% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h2 class="fw-bold">Employee Details</h2>
+
+    <p class="text-muted">Complete information about the employee.</p>
+  </div>
+
+  <div>
+    <a href="{% url 'employee_update' employee.id %}" class="btn btn-warning">
+      Edit Employee
+    </a>
+
+    <a href="{% url 'employee_list' %}" class="btn btn-secondary"> Back </a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header bg-dark text-white">
+    <h4 class="mb-0">{{ employee.name }}</h4>
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <strong> Employee ID </strong>
+
+        <p class="text-muted">{{ employee.id }}</p>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <strong> Employee Name </strong>
+
+        <p class="text-muted">{{ employee.name }}</p>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <strong> Email </strong>
+
+        <p class="text-muted">{{ employee.email }}</p>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <strong> Phone </strong>
+
+        <p class="text-muted">{{ employee.phone }}</p>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <strong> Gender </strong>
+
+        <p class="text-muted">{{ employee.gender }}</p>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <strong> Department </strong>
+
+        <p class="text-muted">{{ employee.department.name }}</p>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <strong> Position </strong>
+
+        <p class="text-muted">{{ employee.position }}</p>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <strong> Salary </strong>
+
+        <p class="text-muted">₹{{ employee.salary }}</p>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <strong> Joining Date </strong>
+
+        <p class="text-muted">{{ employee.joining_date }}</p>
+      </div>
+
+      <div class="col-md-12 mb-3">
+        <strong> Address </strong>
+
+        <p class="text-muted">{{ employee.address }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <a href="{% url 'employee_update' employee.id %}" class="btn btn-warning">
+      Edit
+    </a>
+
+    <a href="{% url 'employee_delete' employee.id %}" class="btn btn-danger">
+      Delete
+    </a>
+
+    <a href="{% url 'employee_list' %}" class="btn btn-secondary">
+      Back to Employees
+    </a>
+  </div>
+</div>
+
+{% endblock %}
